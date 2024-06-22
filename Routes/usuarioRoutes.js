@@ -1,5 +1,9 @@
 import express from 'express'
 
+// Se coloca el mismo nombre que se le asigno en la seccion "export" del archivo "usuarioRoutes.js"
+import { formularioLogin,formularioRegistro } from '../Controllers/usuarioController.js'
+
+
 const router = express.Router()
 
 // Rounting son las rutas de la aplicacion.
@@ -11,6 +15,9 @@ const router = express.Router()
 router.get ('/',function(req,res){
 	res.send('Hola mundo en Express')	
 })
+
+router.get('/Login',formularioLogin) // Se llama, pero se definio en "Controllers/usuarioController.js"
+router.get('/Registro',formularioRegistro) // Es el 2do. EndPoint se llama, pero se definio en "Controllers/usuarioController.js"
 
 router.post('/',(req,res) => {
 	res.json({msg: 'Informacion para grabar POST'})
