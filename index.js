@@ -5,6 +5,20 @@ import express from 'express'
 // Se tiene que importar las funciones donde se definieron las rutas del proyecto
 import usuarioRoutes from './Routes/usuarioRoutes.js'
 
+// Importando la conexion a la base de datos.
+import db from './Config/db.js'
+
+// Conexion a la Base De Datos.
+try
+{
+	await db.authenticate()
+	console.log("Conexion Correcta a la Base De Datos ")
+}
+catch (error)
+{
+	console.log(error)
+}
+
 // Crear la app 
 
 // app = Es loa instancia de la Express
@@ -26,12 +40,12 @@ app.use(express.static('Public'))
 app.use('/Auth',usuarioRoutes) // Llama a la funcion definida de acuerdo a la ruta.
 
 
-const port = 3034
+//const port = 3034
 // ` ` = Se llama template String
 
 
-app.listen(port, () => {
-	console.log(`Escuchando en el puerto ${port}`)
+app.listen(process.env.NODE_PORT, () => {
+	console.log(`Escuchando en el puerto ${process.env.NODE_PORT}`)
 
 })
 

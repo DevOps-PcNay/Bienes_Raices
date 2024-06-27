@@ -7,13 +7,16 @@
   "scripts": {
     "start": "node ./index.js",
     "server": "nodemon ./index.js",
-		"css" : "postcss Public/css/tailwind.css -o Public/css/app.css --watch"
+    "css": "postcss Public/css/tailwind.css -o Public/css/app.css --watch"
   },
   "author": "Ramon",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "pug": "^3.0.3"
+    "mariadb": "^3.3.1",
+    "pug": "^3.0.3",
+    "sequelize": "^6.37.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
